@@ -1,0 +1,25 @@
+{
+  "name": "@tanbo/react-di",
+  "version": "0.0.1",
+  "description": "react di component",
+  "main": "./public-api.js",
+  "module": "./public-api.js",
+  "typings": "./public-api.d.ts",
+  "license": "MIT",
+  "author": {
+    "name": "tanbo",
+    "email": "tanbohb@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbhuabi/react-di.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tbhuabi/react-di.git/issues"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13",
+    "@tanbo/di": "^1.0.4",
+    "react": "^17.0.2"
+  }
+}
