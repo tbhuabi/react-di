@@ -4,16 +4,16 @@
     "module": "es2020",
     "moduleResolution": "node",
     "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "lib": [
       "es2018",
       "dom"
     ],
-    "strict": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
-    "useDefineForClassFields": true,
     "baseUrl": "./",
     "outDir": "bundles/",
     "paths": {
@@ -21,12 +21,6 @@
         "src/public-api.ts"
       ]
     },
-    "jsx": "react",
-    "jsxFactory": "React.createElement"
-  },
-  "include": [
-    "index.ts",
-    "src/",
-    "test/"
-  ]
+    "jsx": "react-jsx"
+  }
 }

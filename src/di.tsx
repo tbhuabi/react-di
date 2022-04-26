@@ -9,7 +9,7 @@ export interface InjectorProps extends Props<any> {
   context?: Provider[]
 }
 
-export function useInjectContext(providers: Provider[] = [], scope?: Scope): [Injector, Function] {
+export function useInjectContext(providers: Provider[] = [], scope?: Scope): [Injector, (props: Props<any>) => JSX.Element] {
   const parent = useContext(InjectorContext)
   const injector = new ReflectiveInjector(parent, providers, scope)
   return [injector, function (props: Props<any>) {
