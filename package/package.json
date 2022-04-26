@@ -20,6 +20,6 @@
   "peerDependencies": {
     "reflect-metadata": "^0.1.13",
     "@tanbo/di": "^1.0.4",
-    "react": "^17.0.2"
+    "react": "^18.0.0"
   }
 }
