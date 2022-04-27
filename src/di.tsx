@@ -1,18 +1,23 @@
 import { Injector, NullInjector, Provider, ReflectiveInjector, Scope } from '@tanbo/di';
-import React, { createContext, useContext, Props } from 'react';
+import { createContext, useContext, ReactNode } from 'react';
 
 const InjectorContext = createContext(new NullInjector())
 
 export * from '@tanbo/di'
 
-export interface InjectorProps extends Props<any> {
+export interface InjectorProps {
+  children?: ReactNode
   context?: Provider[] | Injector
 }
 
-export function useInjectContext(providers: Provider[] = [], scope?: Scope): [Injector, (props: Props<any>) => JSX.Element] {
+export interface Props {
+  children?: ReactNode
+}
+
+export function useInjectContext(providers: Provider[] = [], scope?: Scope): [Injector, (props: Props) => JSX.Element] {
   const parent = useContext(InjectorContext)
   const injector = new ReflectiveInjector(parent, providers, scope)
-  return [injector, function (props: Props<any>) {
+  return [injector, function (props: Props) {
     return (
       <InjectorContext.Provider value={injector}>
         {
