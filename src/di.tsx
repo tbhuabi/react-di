@@ -6,7 +6,7 @@ const InjectorContext = createContext(new NullInjector())
 export * from '@tanbo/di'
 
 export interface InjectorProps extends Props<any> {
-  context?: Provider[]
+  context?: Provider[] | Injector
 }
 
 export function useInjectContext(providers: Provider[] = [], scope?: Scope): [Injector, (props: Props<any>) => JSX.Element] {

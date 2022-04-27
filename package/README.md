@@ -38,7 +38,7 @@ function App() {
   ]
 
   return (
-    <RootInjectorContext value={rootContext}>
+    <RootInjectorContext context={rootContext}>
       <div>
         <Home/>
       </div>
