@@ -1,5 +1,5 @@
 import { Injector, NullInjector, Provider, ReflectiveInjector, Scope } from '@tanbo/di';
-import { createContext, useContext, ReactNode } from 'react';
+import { createContext, useContext, ReactNode, useMemo, useCallback } from 'react';
 
 const InjectorContext = createContext(new NullInjector())
 
@@ -16,8 +16,10 @@ export interface Props {
 
 export function useInjectContext(providers: Provider[] = [], scope?: Scope): [Injector, (props: Props) => JSX.Element] {
   const parent = useContext(InjectorContext)
-  const injector = new ReflectiveInjector(parent, providers, scope)
-  return [injector, function (props: Props) {
+  const injector = useMemo(() => {
+    return new ReflectiveInjector(parent, providers, scope)
+  }, [])
+  const nextContext = useCallback(props => {
     return (
       <InjectorContext.Provider value={injector}>
         {
@@ -25,7 +27,8 @@ export function useInjectContext(providers: Provider[] = [], scope?: Scope): [In
         }
       </InjectorContext.Provider>
     )
-  }]
+  }, [])
+  return [injector, nextContext]
 }
 
 

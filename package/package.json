@@ -1,6 +1,6 @@
 {
   "name": "@tanbo/react-di",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "react di component",
   "main": "./bundles/umd/public-api.js",
   "module": "./bundles/esm/public-api.js",
